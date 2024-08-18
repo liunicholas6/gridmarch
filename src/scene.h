@@ -1,5 +1,5 @@
-#include "pointdrawable.h"
 #include "grid.h"
+#include "pointdrawable.h"
 #include "raysdrawable.h"
 #include "gridmarchdrawable.h"
 class Scene {

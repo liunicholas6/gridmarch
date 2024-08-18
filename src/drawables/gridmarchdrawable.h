@@ -1,5 +1,5 @@
 #pragma once
-#include "gridmarch.h"
+#include "../gridmarch.h"
 #include "pointdrawable.h"
 #include "raysdrawable.h"
 

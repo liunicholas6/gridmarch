@@ -1,6 +1,6 @@
 #pragma once
 #include <glm/glm.hpp>
-#include "shaderprogram.h"
+#include "../shaderprogram.h"
 
 class PointDrawable {
 public:

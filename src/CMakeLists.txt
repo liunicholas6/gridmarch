@@ -7,9 +7,12 @@ set(CMAKE_CXX_STANDARD 17)
 set(EXTERNAL ${CMAKE_SOURCE_DIR}/../external)
 set(IMGUI_DIR ${EXTERNAL}/imgui)
 set(GLAD_DIR ${EXTERNAL}/glad)
+set(DRAWABLES_DIR drawables)
 
 add_library(glad ${GLAD_DIR}/src/glad.c)
 target_include_directories(glad PUBLIC ${GLAD_DIR}/include)
+
+# include_directories(${DRAWABLES_DIR})
 
 
 # Source files
@@ -21,9 +24,9 @@ set(SOURCES
     scene.cpp
     grid.cpp
     gridmarch.cpp
-    gridmarchdrawable.cpp
-    pointdrawable.cpp
-    raysdrawable.cpp
+    ${DRAWABLES_DIR}/gridmarchdrawable.cpp
+    ${DRAWABLES_DIR}/pointdrawable.cpp
+    ${DRAWABLES_DIR}/raysdrawable.cpp
     ${IMGUI_DIR}/imgui.cpp
     ${IMGUI_DIR}/imgui_demo.cpp
     ${IMGUI_DIR}/imgui_draw.cpp
@@ -34,9 +37,7 @@ set(SOURCES
 )
 
 # Include directories
-include_directories(${IMGUI_DIR} ${IMGUI_DIR}/backends ${GL3W_DIR}/include)
-
-
+include_directories(${DRAWABLES_DIR} ${IMGUI_DIR} ${IMGUI_DIR}/backends ${GL3W_DIR}/include)
 
 # Platform-specific settings
 if(UNIX AND NOT APPLE)

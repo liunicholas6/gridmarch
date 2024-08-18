@@ -1,5 +1,5 @@
 #pragma once
-#include "shaderprogram.h"
+#include "../shaderprogram.h"
 #include <glm/glm.hpp>
 
 class RaysDrawable {
