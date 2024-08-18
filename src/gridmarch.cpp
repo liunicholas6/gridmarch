@@ -1,4 +1,8 @@
 #include "gridmarch.h"
+#include <initializer_list>
+#include <stdexcept>
+
+GridMarch::GridMarch() : GridMarch(glm::vec2(0, 0), glm::vec2(1, 0)) {}
 
 GridMarch::GridMarch(glm::vec2 origin, glm::vec2 direction)
     : m_point(origin), m_direction(glm::normalize(direction)), m_cell(glm::ivec2(glm::floor(origin)))

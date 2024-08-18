@@ -20,6 +20,8 @@ set(SOURCES
     shaderprogram.cpp
     scene.cpp
     grid.cpp
+    gridmarch.cpp
+    gridmarchdrawable.cpp
     pointdrawable.cpp
     raysdrawable.cpp
     ${IMGUI_DIR}/imgui.cpp
