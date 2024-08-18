@@ -96,7 +96,7 @@ GlWindow::~GlWindow()
     glfwTerminate();
 }
 
-void GlWindow::render_loop(std::function<void()> geometry, std::function<void()> ui)
+void GlWindow::render_loop(Scene &scene)
 {
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
@@ -126,8 +126,7 @@ void GlWindow::render_loop(std::function<void()> geometry, std::function<void()>
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
-
-        ui();
+        scene.create_gui();
 
         // Rendering
         ImGui::Render();
@@ -137,7 +136,8 @@ void GlWindow::render_loop(std::function<void()> geometry, std::function<void()>
         glClearColor(clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        geometry();
+        scene.render_geometry(display_w, display_h, 100);
+
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
         glfwSwapBuffers(m_window);

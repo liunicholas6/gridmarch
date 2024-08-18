@@ -18,6 +18,7 @@ set(SOURCES
     glwindow.cpp
     shader.cpp
     shaderprogram.cpp
+    scene.cpp
     grid.cpp
     pointdrawable.cpp
     ${IMGUI_DIR}/imgui.cpp
