@@ -18,13 +18,10 @@
 #include "../libs/emscripten/emscripten_mainloop_stub.h"
 #endif
 
-
-
 static void glfw_error_callback(int error, const char* description)
 {
     fprintf(stderr, "GLFW Error %d: %s\n", error, description);
 }
-
 
 GlWindow::GlWindow()
 {
@@ -126,6 +123,11 @@ void GlWindow::render_loop(Scene &scene)
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
+
+        ImGui::Begin("Window controls");
+        ImGui::SliderFloat("Zoom", &m_zoom, 100, 300);
+        ImGui::End();
+
         scene.create_gui();
 
         // Rendering
@@ -136,7 +138,7 @@ void GlWindow::render_loop(Scene &scene)
         glClearColor(clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        scene.render_geometry(display_w, display_h, 100);
+        scene.render_geometry(display_w, display_h, m_zoom);
 
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 

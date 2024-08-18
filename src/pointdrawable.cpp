@@ -7,11 +7,11 @@ PointDrawable::PointDrawable(glm::vec2 point) :
     u_position(m_shader.get_uniform_location("u_position"))
 {}
 
-void PointDrawable::draw(float screenWidth, float screenHeight)
+void PointDrawable::draw(float screenWidth, float screenHeight, float zoom)
 {
     glPointSize(10);
     m_shader.use_me();
-    glm::vec2 originNDC = m_point * 100.f / glm::vec2(screenWidth, screenHeight);
-    glUniform2f(u_position, originNDC.x, originNDC.y);
+    glm::vec2 ndc = m_point * zoom / glm::vec2(screenWidth, screenHeight);
+    glUniform2f(u_position, ndc.x, ndc.y);
     glDrawArrays(GL_POINTS, 0, 1);
 }

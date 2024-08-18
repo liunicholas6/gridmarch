@@ -16,14 +16,14 @@ Grid::Grid() : m_shaderProgram("grid.vert", "grid.frag")
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(quad::indices), &quad::indices, GL_STATIC_DRAW);
 
-    m_u_dimensions = m_shaderProgram.get_uniform_location("u_dimensions");
+    m_u_dims_over_zoom = m_shaderProgram.get_uniform_location("u_dims_over_zoom");
 }
 
 void Grid::draw(float width, float height, float zoom) const
 {
     m_shaderProgram.use_me();
     glBindVertexArray(m_vao);
-    glUniform2f(m_u_dimensions, width / zoom, height / zoom);
+    glUniform2f(m_u_dims_over_zoom, width / zoom, height / zoom);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
 

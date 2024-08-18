@@ -6,6 +6,7 @@
 class GlWindow {
 private:
     GLFWwindow* m_window;
+    float m_zoom = 100;
 public:
     GlWindow();
     ~GlWindow();

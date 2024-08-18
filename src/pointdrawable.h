@@ -6,7 +6,7 @@ class PointDrawable {
 public:
     PointDrawable() : PointDrawable(glm::vec2()) {};
     PointDrawable(glm::vec2 point);
-    void draw(float screenWidth, float screenHeight);
+    void draw(float screenWidth, float screenHeight, float zoom);
     glm::vec2& get_point() {return m_point; }
 
 private:

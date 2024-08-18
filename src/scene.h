@@ -18,4 +18,5 @@ public:
     virtual ~Scene1() = default;
 private:
     PointDrawable m_pointDrawable;
+    float m_rayAngle;
 };

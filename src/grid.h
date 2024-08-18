@@ -13,5 +13,5 @@ private:
     GLuint m_vao;
     GLuint m_vbo;
     GLuint m_ebo;
-    GLuint m_u_dimensions;
+    GLuint m_u_dims_over_zoom;
 };
