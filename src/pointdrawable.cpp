@@ -9,7 +9,7 @@ PointDrawable::PointDrawable(glm::vec2 point) :
 
 void PointDrawable::draw(float screenWidth, float screenHeight, float zoom)
 {
-    glPointSize(10);
+    glPointSize(zoom / 10);
     m_shader.use_me();
     glm::vec2 ndc = m_point * zoom / glm::vec2(screenWidth, screenHeight);
     glUniform2f(u_position, ndc.x, ndc.y);

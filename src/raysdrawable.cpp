@@ -16,7 +16,6 @@ RaysDrawable::RaysDrawable() : m_shaderProgram("rays.vert", "rays.frag"), m_numN
 void RaysDrawable::set_rays(const std::vector<glm::vec2>& polyline) {
     glBindVertexArray(m_vao);
 
-
     const float width = 0.05;
     const float arrowHeadWidth = 0.15;
     const float arrowHeadLength = 0.2;

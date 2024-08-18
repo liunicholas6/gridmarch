@@ -9,6 +9,7 @@
 
 int main(int argc, char** argv) {
     GlWindow window;
-    Scene1 scene1;
-    window.render_loop(scene1);
+    SceneMain sceneMain;
+
+    window.render_loop(sceneMain);
 }
