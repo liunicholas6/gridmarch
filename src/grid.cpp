@@ -24,6 +24,7 @@ void Grid::draw(float width, float height, float zoom) const
     m_shaderProgram.use_me();
     glBindVertexArray(m_vao);
     glUniform2f(m_u_dims_over_zoom, width / zoom, height / zoom);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
 

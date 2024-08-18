@@ -1,5 +1,6 @@
 #include "pointdrawable.h"
 #include "grid.h"
+#include "raysdrawable.h"
 class Scene {
 public:
     Scene() = default;
@@ -12,11 +13,14 @@ private:
 
 class Scene1 : public Scene {
 public:
-    Scene1() = default;
+    Scene1();
     void create_gui() override;
     void render_geometry(float screenWidth, float screenHeight, float zoom) override;
     virtual ~Scene1() = default;
 private:
     PointDrawable m_pointDrawable;
-    float m_rayAngle;
+    RaysDrawable m_raysDrawable;
+    float m_rayAngle = 0;
+
+    void set_ray();
 };
