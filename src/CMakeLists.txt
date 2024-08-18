@@ -19,6 +19,7 @@ set(SOURCES
     shader.cpp
     shaderprogram.cpp
     grid.cpp
+    pointdrawable.cpp
     ${IMGUI_DIR}/imgui.cpp
     ${IMGUI_DIR}/imgui_demo.cpp
     ${IMGUI_DIR}/imgui_draw.cpp

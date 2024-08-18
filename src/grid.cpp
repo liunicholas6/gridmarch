@@ -1,16 +1,18 @@
 #include "grid.h"
 #include "quad.h"
 
-Grid::Grid(GLuint vao, GLuint vbo, GLuint ebo)
-    : m_vao(vao), m_vbo(vbo), m_ebo(ebo), m_shaderProgram("grid.vert", "grid.frag")
+Grid::Grid() : m_shaderProgram("grid.vert", "grid.frag")
 {
+    glGenVertexArrays(1, &m_vao);
     glBindVertexArray(m_vao);
 
+    glGenBuffers(1, &m_vbo);
     glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
     glBufferData(GL_ARRAY_BUFFER, sizeof(quad::vertices), &quad::vertices, GL_STATIC_DRAW);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void *)0);
     glEnableVertexAttribArray(0);
 
+    glGenBuffers(1, &m_ebo);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(quad::indices), &quad::indices, GL_STATIC_DRAW);
 

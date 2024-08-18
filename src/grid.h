@@ -4,7 +4,7 @@
 
 class Grid {
 public:
-    Grid(GLuint vao, GLuint vbo, GLuint ebo);
+    Grid();
     ~Grid();
     void draw(float width, float height, float zoom) const;
 
